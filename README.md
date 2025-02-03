@@ -12,8 +12,10 @@ The core functionality includes:
 5. Visualization of the motion analysis as animated GIFs
 
 
-### Python Implementation:
+## Python Implementation:
+
 #### Install libraries:
+    $ pip install pandas matplotlib seaborn
     $ pip install pydicom
     $ pip install pydicom matplotlib
     $ pip install opencv-python-headless numpy
@@ -40,6 +42,34 @@ The core functionality includes:
 
 \$ python src_python/benchmark.py data/smallerData
 
+
+
+## Go Implementation:
+
+### Usage:
+#### To Run:
+Initialize go module:
+    go mod init proj3
+Install required dependencies:
+	go get -u gocv.io/x/gocv 
+	go get -u github.com/suyashkumar/dicom 
+	go mod tidy
+
+For cluster:
+    sbatch ./benchmark/run_benchmark.sh
+
+#### Independent Runs:
+**Sequential:**
+    \$ go run ./cmdprocess-dicom/main.go -input ./smallerData -output ./output/sequential/ -mode sequential 
+
+**Pipeline:**
+    \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/pipeline/ -mode pipeline -workers 8 -buffer 10 
+
+**Work Stealing:**
+    \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/workstealing/ -mode workstealing -workers 8
+
+**Run All (Benchmarking)**
+    \$ go run ./cmd/benchmark/main.go -input ./smallerData -maxworkers 8
 
 
 ### Resources:
