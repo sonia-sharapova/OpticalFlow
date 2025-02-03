@@ -1,8 +1,6 @@
 # OpticalFlow
 Optical Flow to Capture Cardiac Motion (with parallelizations)
 
-**Sample data can be found in /data/smallerData**
-
 ### Code Overview
 The core functionality includes:
 1. Loading and preprocessing DICOM files.
@@ -13,6 +11,8 @@ The core functionality includes:
 
 
 ## Python Implementation:
+
+**Sample data can be found in /src_python/data/smallerData**
 
 #### Install libraries:
     $ pip install pandas matplotlib seaborn
@@ -46,6 +46,8 @@ The core functionality includes:
 
 ## Go Implementation:
 
+**Sample data can be found in /src_go/data/smallerData**
+
 ### Usage:
 #### To Run:
 Initialize go module:
@@ -60,16 +62,16 @@ For cluster:
 
 #### Independent Runs:
 **Sequential:**
-    \$ go run ./cmdprocess-dicom/main.go -input ./smallerData -output ./output/sequential/ -mode sequential 
+\$ go run ./cmdprocess-dicom/main.go -input ./smallerData -output ./output/sequential/ -mode sequential 
 
 **Pipeline:**
-    \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/pipeline/ -mode pipeline -workers 8 -buffer 10 
+\$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/pipeline/ -mode pipeline -workers 8 -buffer 10 
 
 **Work Stealing:**
-    \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/workstealing/ -mode workstealing -workers 8
+\$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/workstealing/ -mode workstealing -workers 8
 
 **Run All (Benchmarking)**
-    \$ go run ./cmd/benchmark/main.go -input ./smallerData -maxworkers 8
+\$ go run ./cmd/benchmark/main.go -input ./smallerData -maxworkers 8
 
 
 ### Resources:
