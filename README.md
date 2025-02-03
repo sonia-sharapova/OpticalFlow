@@ -62,15 +62,19 @@ For cluster:
 
 #### Independent Runs:
 **Sequential:**
+
 \$ go run ./cmdprocess-dicom/main.go -input ./smallerData -output ./output/sequential/ -mode sequential 
 
 **Pipeline:**
+
 \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/pipeline/ -mode pipeline -workers 8 -buffer 10 
 
 **Work Stealing:**
+
 \$ go run ./cmd/process-dicom/main.go -input ./smallerData -output ./output/workstealing/ -mode workstealing -workers 8
 
 **Run All (Benchmarking)**
+
 \$ go run ./cmd/benchmark/main.go -input ./smallerData -maxworkers 8
 
 
