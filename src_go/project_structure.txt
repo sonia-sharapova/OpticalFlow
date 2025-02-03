@@ -1,0 +1,21 @@
+Packages:
+cmd: Contains main function that runs from command line
+dicom: DICOM handling package
+flow: Optical flow package
+viz: Visualization
+
+proj3/
+├── cmd/
+│   └── main.go               # Main function reading from command line
+│
+├── dicom/
+│   └── preprocessing.go     # File loading and image preprocessing
+│
+├── flow/
+│   ├── features.go         # Feature detection 
+│   └── optical_flow.go     # Optical flow computation
+│
+├── viz/
+│   └── visualization.go    # Generates gifs as output
+│
+└── go.mod
